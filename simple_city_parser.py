@@ -77,6 +77,6 @@ schedule.every().hour.do(air_parser('http://www.stateair.net/web/rss/1/5.xml', '
 
 while True:
 	schedule.run_pending()
-    time.sleep(600)
+	time.sleep(600)
 
 #########################
