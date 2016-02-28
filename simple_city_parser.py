@@ -85,11 +85,11 @@ def job5():
 	air_parser('http://www.stateair.net/web/rss/1/5.xml', 'Shenyang', 1)
 	print "Shenyang job is on schedule"
 
-schedule.every(1).minutes.do(job1)
-schedule.every(1).minutes.do(job2)
-schedule.every(1).minutes.do(job3)
-schedule.every(1).minutes.do(job4)
-schedule.every(1).minutes.do(job5)
+schedule.every(60).minutes.do(job1)
+schedule.every(60).minutes.do(job2)
+schedule.every(60).minutes.do(job3)
+schedule.every(60).minutes.do(job4)
+schedule.every(60).minutes.do(job5)
 
 while True:
 	schedule.run_pending()
