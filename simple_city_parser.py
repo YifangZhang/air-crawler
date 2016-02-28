@@ -69,14 +69,30 @@ air_parser('http://www.stateair.net/web/rss/1/3.xml', 'Guangzhou', 24)
 air_parser('http://www.stateair.net/web/rss/1/4.xml', 'Shanghai', 24)
 air_parser('http://www.stateair.net/web/rss/1/5.xml', 'Shenyang', 24)
 
-schedule.every().hour.do(air_parser('http://www.stateair.net/web/rss/1/1.xml', 'Beijing', 1))
-schedule.every().hour.do(air_parser('http://www.stateair.net/web/rss/1/2.xml', 'Chengdu', 1))
-schedule.every().hour.do(air_parser('http://www.stateair.net/web/rss/1/3.xml', 'Guangzhou', 1))
-schedule.every().hour.do(air_parser('http://www.stateair.net/web/rss/1/4.xml', 'Shanghai', 1))
-schedule.every().hour.do(air_parser('http://www.stateair.net/web/rss/1/5.xml', 'Shenyang', 1))
+def job1():
+	air_parser('http://www.stateair.net/web/rss/1/1.xml', 'Beijing', 1)
+	print "Beijing job is on schedule"
+def job2():
+	air_parser('http://www.stateair.net/web/rss/1/2.xml', 'Chengdu', 1)
+	print "Chengdu job is on schedule"
+def job3():
+	air_parser('http://www.stateair.net/web/rss/1/3.xml', 'Guangzhou', 1)
+	print "Guangzhou job is on schedule"
+def job4():
+	air_parser('http://www.stateair.net/web/rss/1/4.xml', 'Shanghai', 1)
+	print "Shanghai job is on schedule"
+def job5():
+	air_parser('http://www.stateair.net/web/rss/1/5.xml', 'Shenyang', 1)
+	print "Shenyang job is on schedule"
+
+schedule.every(1).minutes.do(job1)
+schedule.every(1).minutes.do(job2)
+schedule.every(1).minutes.do(job3)
+schedule.every(1).minutes.do(job4)
+schedule.every(1).minutes.do(job5)
 
 while True:
 	schedule.run_pending()
-	time.sleep(600)
+	time.sleep(60)
 
 #########################
