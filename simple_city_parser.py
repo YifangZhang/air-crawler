@@ -1,11 +1,22 @@
 import requests
 import json
 import csv
-import os.path
+import os
 import schedule
 import time
 import xml.etree.ElementTree as ET
 
+from pymongo import MongoClient
+
+client = MongoClient("141.142.209.153",27017)
+air_db = client['air_quality_data']
+air_quality = air_db['simple_cities']
+
+def uploadDataToServer(dataSet):
+
+	air_quality.insert_once(dataSet)
+
+	print "upload finished"
 
 
 def air_parser(URL, URL2, city_name):
@@ -78,6 +89,9 @@ def air_parser(URL, URL2, city_name):
 									temp[i]['windDirection']])
 
 	print city_name + "job is done."
+
+	uploadDataToServer(temp)
+
 	#print temp
 
 
