@@ -14,7 +14,7 @@ air_quality = air_db['simple_cities']
 
 def uploadDataToServer(dataSet):
 
-	air_quality.insert_once(dataSet)
+	air_quality.insert(dataSet)
 
 	print "upload finished"
 
@@ -81,7 +81,7 @@ def air_parser(URL, URL2, city_name):
 			samplewriter = csv.writer(outfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
 			# write first line #
 			samplewriter.writerow(['Time', 'City', 'Concentration', 'AQI', 
-									'Weather', 'Wind_Direction', 'Wind_Speed'])
+									'Weather', 'Wind_Speed', 'Wind_Direction'])
 			# saved number should be less than 10 #
 			for i in reversed(range(0, 1)):
 				samplewriter.writerow([temp[i]['time'], temp[i]['city'], temp[i]['Concentration'], 
