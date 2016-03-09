@@ -40,7 +40,11 @@ def air_parser(URL, URL2, city_name):
 		if(item.tag == "item"):
 			time = item.find("title").text
 			PM25 = item.find("Conc").text
+			if(PM25 == "-999.0"):
+				PM25 = ""
 			AQI = item.find("AQI").text
+			if(AQI == "-999"):
+				AQI = ""
 
 			## from URL2
 			xml_data = result2.text.split('\n')[1:]
@@ -52,6 +56,11 @@ def air_parser(URL, URL2, city_name):
 			windSpeed = data2.split('Wind Speed: ')[1].split('mph')[0] #unit mph
 			windDirection = data2.split('Wind Direction: ')[1].split(', ')[0]
 			## end of URL2
+			if(weather == "null"):
+				weather = ""
+			if(windDirection == "null"):
+				windDirection = ""
+				windSpeed = ""
 
 			entry = {"city":city_name ,"time":time, "Concentration":PM25, "AQI":AQI, 
 					"weather":weather, "windSpeed":windSpeed, "windDirection":windDirection}
