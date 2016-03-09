@@ -63,9 +63,9 @@ def air_parser(URL, URL2, city_name):
 
 		#print (item.tag == "item")
 
-	if(os.path.isfile(city_name + ".csv")):
+	if(os.path.isfile("air_data.csv")):
 		print city_name + "file already exists"
-		filename_output = city_name + ".csv"
+		filename_output = "air_data.csv"
 		with open(filename_output, 'a') as outfile:
 			# init the writer #
 			samplewriter = csv.writer(outfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
@@ -75,7 +75,7 @@ def air_parser(URL, URL2, city_name):
 									temp[i]['AQI'], temp[i]['weather'], temp[i]['windSpeed'], 
 									temp[i]['windDirection']])
 	else: ## file already exists ##
-		filename_output = city_name + ".csv"
+		filename_output = "air_data.csv"
 		with open(filename_output, 'a') as outfile:
 			# init the writer #
 			samplewriter = csv.writer(outfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
