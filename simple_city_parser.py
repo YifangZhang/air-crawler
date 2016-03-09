@@ -16,7 +16,7 @@ def uploadDataToServer(dataSet):
 
 	air_quality.insert(dataSet)
 
-	print "upload finished"
+	#print "upload finished"
 
 
 def air_parser(URL, URL2, city_name):
@@ -68,7 +68,7 @@ def air_parser(URL, URL2, city_name):
 
 			break
 		else:
-			print "this is not an record"
+			#print "this is not an record"
 
 		#print (item.tag == "item")
 
